@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Редактирование статьи</title>
+  <meta charset="UTF-8">
+  <link th:href="@{static/css/style.css}" rel="stylesheet" />
+  <div th:insert="blocks/header" ></div>
+</head>
+<body>
+<div th:each="el: ${post}">
+  <form method="post">
+    <input type="number" th:value="${el.maxsalary}" name="maxsalary" placeholder="Введите максимальную зарплату">
+    <input type="checkbox" th:checked="${el.paid}" name="paid">
+    <input type="text" th:value="${el.namepost}" name="namepost" placeholder="Введите название должности">
+    <textarea type="number" th:text="${el.salary}" name="salary" ></textarea>
+    <input type="number" th:value="${el.countemploey}" name="countemploey" placeholder="Введите количество таких сотрудников">
+    <br>
+    <button type="submit">Сохранить изменения</button>
+  </form>
+</div>
+</body>
+</html>
